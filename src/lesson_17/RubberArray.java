@@ -15,7 +15,7 @@ private int indicator;
     public RubberArray() {
         array = new int[10];
     }
-    void add(int number) {
+    public void add(int number) {
 
         if (indicator > array.length * 0.9) {
             expandArray();
@@ -24,7 +24,7 @@ private int indicator;
         array[indicator] = number;
         indicator++;
     }
-    void add(int... ints) {
+    public void add(int... ints) {
         for (int i = 0; i < ints.length; i++) {
             add(ints[i]);
         }
