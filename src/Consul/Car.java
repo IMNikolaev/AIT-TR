@@ -12,7 +12,7 @@ public class Car {
         this.color = color;
     }
 
-    public boolean startCat (boolean gaz){
+    public boolean startCar (){
         if (gaz){
                 System.out.println("Двигатель и так был заведен");
         }
@@ -22,7 +22,7 @@ public class Car {
         }
         return true;
     }
-    public boolean stopCat (boolean gaz){
+    public boolean stopCar (){
         if (gaz) {
             gaz = false;
             System.out.println("выключать двигатель");
