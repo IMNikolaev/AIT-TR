@@ -12,15 +12,39 @@ public class Car {
         this.color = color;
     }
 
-    public void startCat (boolean gaz){
-        gaz= true;
-        System.out.println("заводить двигатель");
+    public boolean startCat (boolean gaz){
+        if (gaz){
+                System.out.println("Двигатель и так был заведен");
+        }
+        else {
+            gaz = true;
+            System.out.println("заводить двигатель");
+        }
+        return true;
     }
-    public void stopCat (boolean gaz){
-        gaz= false;
-        System.out.println("выключать двигатель");
+    public boolean stopCat (boolean gaz){
+        if (gaz) {
+            gaz = false;
+            System.out.println("выключать двигатель");
+        }
+        else {
+            System.out.println("Двигатель и так был остановлен");
+        }
+        return false;
     }
     public void beep(String bee) {
         System.out.println(bee);
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getColor() {
+        return color;
     }
 }
