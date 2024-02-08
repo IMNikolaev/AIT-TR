@@ -29,7 +29,7 @@ private int indicator;
             add(ints[i]);
         }
     }
-    void expandArray() {
+    private void expandArray() {
         int[] newArray = new int[array.length * 2];
         for (int i = 0; i < indicator; i++) {
             newArray[i] = array[i];
