@@ -53,12 +53,11 @@ public class Dogs {
         return dogJumpHeight;
     }
     public boolean barrier () {
-        if (maxDogJumpHeight > maxDogJumpHeight) return false;
+        if (maxDogJumpHeight < barrierHeight) return false;
         if (barrierHeight <= dogJumpHeight) return true;
-        while (barrierHeight > dogJumpHeight && barrierHeight < maxDogJumpHeight+10) {
+        while (barrierHeight > dogJumpHeight) {
             dogTraining();
         }
-        if (barrierHeight < dogJumpHeight) {dogJumpHeight = maxDogJumpHeight;}
         return true;
     }
     public String result (){
