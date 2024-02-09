@@ -59,7 +59,7 @@ public class Dogs {
                 return true;
             }
             else {
-                while (barrierHeight != dogJumpHeight){
+                while (barrierHeight != dogJumpHeight && barrierHeight > dogJumpHeight){
                     dogTraining();
                 }
             }

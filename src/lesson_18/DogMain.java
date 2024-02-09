@@ -3,9 +3,9 @@ package lesson_18;
 public class DogMain {
     public static void main(String[] args) {
 
-        Dogs dog1 = new Dogs("Ball", 100);
+        Dogs dog1 = new Dogs("Ball", 120);
         Dogs dog2 = new Dogs("Little", 10);
-        Dogs dog3 = new Dogs("Hard", 120);
+        Dogs dog3 = new Dogs("Hard", 123);
         Dogs dog4 = new Dogs("Polly", 80);
         Dogs dog5 = new Dogs("Jack", 300);
         Dogs.barrierHeight = 200;
