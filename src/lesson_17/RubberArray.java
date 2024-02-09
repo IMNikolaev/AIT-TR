@@ -67,17 +67,13 @@ private int indicator;
     public int size (){
         return indicator;
     }
+
     public void remove (int index){
         if (index>=indicator) return;
-        int[] newArray = new int[indicator-1];
-        int j=0;
-        for (int i = 0; i < indicator; i++) {
-            if (i!=index){
-                newArray[j]= array[i];
-                j++;
+
+        for (int i = index; i < indicator -1; i++) {
+                array[i] = array[i]+1;
             }
-        }
-        array = newArray;
         indicator--;
     }
     public void remove (String num){
@@ -97,4 +93,6 @@ private int indicator;
         set(indexOf(old),fresh);
         else {return;}
     }
+
+
 }
