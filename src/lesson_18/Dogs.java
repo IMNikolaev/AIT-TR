@@ -1,6 +1,7 @@
 package lesson_18;
 
 public class Dogs {
+    final static int numberOfTeethInADog = 42;
     private String dogName;
     private int dogJumpHeight;
     private int maxDogJumpHeight;
@@ -8,6 +9,12 @@ public class Dogs {
     static int dogCounts=0;
     private int countTries;
     static int dogsWhoCan = 0;
+    public static int  countJumps=0;
+
+
+    public static int getCountJumps() {
+        return countJumps;
+    }
 
 
     public int getDogCounts(){
@@ -45,6 +52,7 @@ public class Dogs {
     public int dogTraining () {
         if (dogJumpHeight < maxDogJumpHeight) {
             dogJumpHeight += 10;
+            countJumps++;
             countTries++;
         }
         if (dogJumpHeight > maxDogJumpHeight) {

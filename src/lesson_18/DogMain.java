@@ -15,5 +15,7 @@ public class DogMain {
         System.out.println(dog4.result());
         System.out.println(dog5.result());
         System.out.println("Of the " + Dogs.dogCounts + " dogs, " + Dogs.dogsWhoCan+ " were able to take the barrier");
+        System.out.println("Total number of jumps = " + Dogs.countJumps);
+        System.out.println("The constant is the standard number of teeth in a dog = " + Dogs.numberOfTeethInADog);
     }
 }
