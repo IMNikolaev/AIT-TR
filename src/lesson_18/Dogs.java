@@ -5,17 +5,28 @@ public class Dogs {
     private String dogName;
     private int dogJumpHeight;
     private int maxDogJumpHeight;
-    static int barrierHeight;
+    private static int barrierHeight;
     static int dogCounts=0;
     private int countTries;
     static int dogsWhoCan = 0;
-    public static int  countJumps=0;
+    private static int  countJumps=0;
 
+
+    public static int getBarrierHeight() {
+        return barrierHeight;
+    }
+
+    public static void setBarrierHeight(int barrierHeight) {
+        Dogs.barrierHeight = barrierHeight;
+    }
 
     public static int getCountJumps() {
         return countJumps;
     }
 
+    public static void setCountJumps(int countJumps) {
+        Dogs.countJumps = countJumps;
+    }
 
     public int getDogCounts(){
         return dogCounts;
@@ -52,7 +63,6 @@ public class Dogs {
     public int dogTraining () {
         if (dogJumpHeight < maxDogJumpHeight) {
             dogJumpHeight += 10;
-            countJumps++;
             countTries++;
         }
         if (dogJumpHeight > maxDogJumpHeight) {
@@ -61,11 +71,18 @@ public class Dogs {
         return dogJumpHeight;
     }
     public boolean barrier () {
+        int CountJumps = getCountJumps();
         if (maxDogJumpHeight < barrierHeight) return false;
-        if (barrierHeight <= dogJumpHeight) return true;
+        if (barrierHeight <= dogJumpHeight)
+        {
+            CountJumps++;
+            setCountJumps(CountJumps);
+            return true;}
         while (barrierHeight > dogJumpHeight) {
             dogTraining();
         }
+        CountJumps++;
+        setCountJumps(CountJumps);
         return true;
     }
     public String result (){
