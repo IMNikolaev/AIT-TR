@@ -1,7 +1,7 @@
 package lesson_18;
 
 public class Dogs {
-    final static int numberOfTeethInADog = 42;
+    private final static int numberOfTeethInADog = 42;
     private String dogName;
     private int dogJumpHeight;
     private int maxDogJumpHeight;
@@ -11,6 +11,9 @@ public class Dogs {
     static int dogsWhoCan = 0;
     private static int  countJumps=0;
 
+    public static int getNumberOfTeethInADog(){
+        return numberOfTeethInADog;
+    }
 
     public static int getBarrierHeight() {
         return barrierHeight;
