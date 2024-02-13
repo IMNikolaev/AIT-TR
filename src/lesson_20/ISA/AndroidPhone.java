@@ -2,7 +2,7 @@ package lesson_20.ISA;
 
 import java.util.Random;
 
-public class Android extends PhoneWithScrean{
+public class AndroidPhone extends PhoneWithScrean{
 
     private double androidVersion;
 
@@ -10,7 +10,7 @@ public class Android extends PhoneWithScrean{
         return androidVersion;
     }
 
-    public Android(String model, int yearManufactured, int screenSize, double androidVersion) {
+    public AndroidPhone(String model, int yearManufactured, int screenSize, double androidVersion) {
         super(model, yearManufactured, screenSize);
         this.androidVersion = androidVersion;
     }

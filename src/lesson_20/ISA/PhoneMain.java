@@ -8,7 +8,7 @@ public class PhoneMain {
         System.out.println(phone1.phoneInfo());
         phone1.playVideo();
 
-        Android phone2 = new Android("Samsung", 2012, 6, 7.0);
+        AndroidPhone phone2 = new AndroidPhone("Samsung", 2012, 6, 7.0);
         phone2.updateandroidVersion();
         phone2.updateandroidVersion();
         phone2.updateandroidVersion();
