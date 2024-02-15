@@ -6,8 +6,8 @@ public class Main {
         AmateurAthlete amateurAthlete = new AmateurAthlete();
         ProfessionalAthlete professionalAthlete = new ProfessionalAthlete();
 
-        System.out.println(human.run() + " " + human.rest());
-        System.out.println(amateurAthlete.run() + " " + amateurAthlete.rest());
-        System.out.println(professionalAthlete.run() + " " + professionalAthlete.rest());
+        System.out.println("Speed " + human.run() + " rest Time " + human.rest());
+        System.out.println("Speed " + amateurAthlete.run() + " rest Time " + amateurAthlete.rest());
+        System.out.println("Speed " + professionalAthlete.run() + " rest Time " + professionalAthlete.rest());
     }
 }

@@ -2,12 +2,16 @@ package lesson_22.hummans;
 
 public class AmateurAthlete extends Human {
 
+    private final int speed = 15;
+    private final int time = 10;
+
     @Override
-    public String run (){
-        return "Run 15 km/h";
+    public int run (){
+        return speed;
     }
+    @Override
     public int rest (){
-        return 10;
+        return time;
     }
 
 }

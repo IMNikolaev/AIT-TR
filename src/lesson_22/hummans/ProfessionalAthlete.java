@@ -2,12 +2,12 @@ package lesson_22.hummans;
 
 public class ProfessionalAthlete extends AmateurAthlete {
 
-    @Override
-    public String run (){
-        return "Run 25 km/h";
+    private final int speed = 25;
+    private final int time = 5;
+    public int run (){
+        return speed;
     }
     public int rest (){
-        return 5;
+        return time;
     }
-
 }
