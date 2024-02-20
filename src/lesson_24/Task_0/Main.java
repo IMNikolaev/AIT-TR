@@ -5,8 +5,9 @@ public class Main {
         PaymentSystem bankAccount = new BankAccount(10000);
         PaymentSystem electronicWallet = new ElectronicWallet(5000);
 
-        bankAccount.transferMoney(1000,electronicWallet);
+        bankAccount.transferMoney(11000,electronicWallet);
         System.out.println(bankAccount.checkBalance());
         System.out.println(electronicWallet.checkBalance());
+
     }
 }

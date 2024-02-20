@@ -72,7 +72,7 @@ private int indicator;
         if (index>=indicator) return;
 
         for (int i = index; i < indicator -1; i++) {
-                array[i] = array[i]+1;
+                array[i] = array[i+1];
             }
         indicator--;
     }
