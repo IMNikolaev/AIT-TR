@@ -16,6 +16,7 @@ public class RubberArrayV2<T> implements MyList<T>{
         }
     }
 
+    @SuppressWarnings("unchecked")
     public RubberArrayV2() {
         this.array = (T[]) new Object[10];
     }
@@ -72,21 +73,12 @@ public class RubberArrayV2<T> implements MyList<T>{
 
     @Override
     public boolean contains(T value) {
-        for (int i = 0; i < indicator; i++) {
-            if (array[i].equals(value)) {
-                return true;
-            }
-        }
-        return false;
+        return indexOf(value)>=0;
     }
 
     @Override
     public T[] toArray() {
-        T[] result = (T[]) new Object[indicator];
-        for (int i = 0; i < indicator; i++) {
-            result[i] = array[i];
-        }
-        return result;
+        return Arrays.copyOf(array, indicator, (Class<? extends T[]>) array.getClass());
     }
 
     @Override
@@ -122,13 +114,14 @@ public class RubberArrayV2<T> implements MyList<T>{
             return array[index];
         }
         else {
-            System.out.println("Index > Array length");
             return null;
         }
     }
 
     @Override
     public void set(int index, T value) {
+        if (index<0|| index > indicator-1) return;
+
         array[index] = value;
     }
     @Override

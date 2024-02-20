@@ -30,7 +30,7 @@ private int indicator;
         }
     }
     private void expandArray() {
-        int[] newArray = new int[array.length * 2];
+        int[] newArray = new int[array.length + 10];
         for (int i = 0; i < indicator; i++) {
             newArray[i] = array[i];
         }
