@@ -73,7 +73,7 @@ public class RubberArrayV2<T> implements MyList<T>{
     @Override
     public boolean contains(T value) {
         for (int i = 0; i < indicator; i++) {
-            if (array[i] == value) {
+            if (array[i].equals(value)) {
                 return true;
             }
         }
@@ -92,7 +92,7 @@ public class RubberArrayV2<T> implements MyList<T>{
     @Override
     public boolean remove(T value) {
         for (int i = 0; i < indicator; i++) {
-            if (array[i] == value) {
+            if (array[i].equals(value)) {
                 remove(i);
                 return true;
             }
