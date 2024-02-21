@@ -78,8 +78,9 @@ public class RubberArrayV2<T> implements MyList<T>{
 
     @Override
     public T[] toArray() {
-        return Arrays.copyOf(array, indicator, (Class<? extends T[]>) array.getClass());
+        return Arrays.copyOf(array, indicator);
     }
+
 
     @Override
     public boolean remove(T value) {

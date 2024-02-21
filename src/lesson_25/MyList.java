@@ -53,7 +53,7 @@ public interface MyList<T> {
      * Возвращает представление элементов в виде массива
      * @return Array - представление элементов в виде массива
      */
-    T[] toArray();
+    Object[] toArray();
 
 
 
