@@ -88,7 +88,7 @@ public class Person {
 
      */
     private boolean isPasswordValid(String password) {
-        if (email == null || email.isEmpty()) return false;
+        if (password == null || password.isEmpty()) return false;
         boolean hasUpperCase = false;
         boolean hasLowerCase = false;
         boolean hasDigit = false;
@@ -117,7 +117,7 @@ public class Person {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword (String password) {
         this.password = password;
     }
 
