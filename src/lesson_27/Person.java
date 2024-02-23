@@ -95,7 +95,6 @@ public class Person {
         boolean hasSpecialChar = false;
 
         String specialChars = "!%$@&*()[]";
-        char[] passwordChars = password.toCharArray();
         for (int i = 0; i < password.length(); i++) {
             char ch =  password.charAt(i);
             if(Character.isUpperCase(ch)){

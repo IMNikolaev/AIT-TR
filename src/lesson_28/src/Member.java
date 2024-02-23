@@ -122,11 +122,11 @@ public class Member {
             else if(Character.isDigit(ch)){
                 hasDigit = true;
             }
-            else if (specialChars.charAt(ch)!=-1){
+            else if (specialChars.indexOf(ch) != -1){
                 hasSpecialChar = true;
             }
         }
-        return password.length()>=8 && hasUpperCase && hasLowerCase && hasDigit && hasSpecialChar;
+        return password.length() >= 8 && hasUpperCase && hasLowerCase && hasDigit && hasSpecialChar;
     }
 
 
@@ -135,6 +135,8 @@ public class Member {
     public String toString() {
         return "Person {" +
                 "email='" + email + '\'' +
+                '}'+ "\n" + "{" +
+                "password='" + password + '\'' +
                 '}';
     }
 }
