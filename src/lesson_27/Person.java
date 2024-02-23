@@ -96,8 +96,8 @@ public class Person {
 
         String specialChars = "!%$@&*()[]";
         char[] passwordChars = password.toCharArray();
-        for (int i = 0; i < passwordChars.length; i++) {
-            char ch = passwordChars[i];
+        for (int i = 0; i < password.length(); i++) {
+            char ch =  password.charAt(i);
             if(Character.isUpperCase(ch)){
                 hasUpperCase = true;
             }

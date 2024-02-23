@@ -103,35 +103,30 @@ public class Member {
      */
 
     private boolean isPasswordValid(String password) {
-        if (password == null || password.length() < 8) return false;
+        if (password == null || password.isEmpty()) return false;
+        boolean hasUpperCase = false;
+        boolean hasLowerCase = false;
+        boolean hasDigit = false;
+        boolean hasSpecialChar = false;
 
-        boolean isLowerCase = false;
-        boolean isUpperCase = false;
-        boolean isDigit = false;
-        boolean isSpecialSymbol = false;
-
-        for (int i = 0; i < password.length(); i++) {
-            char c = password.charAt(i);
-
-            if (Character.isDigit(c)) {
-                isDigit = true;
-                continue;
+        String specialChars = "!%$@&*()[]";
+        char[] passwordChars = password.toCharArray();
+        for (int i = 0; i < passwordChars.length; i++) {
+            char ch = passwordChars[i];
+            if(Character.isUpperCase(ch)){
+                hasUpperCase = true;
             }
-            if (Character.isLowerCase(c)) {
-                isLowerCase = true;
-                continue;
+            else if(Character.isLowerCase(ch)){
+                hasLowerCase = true;
             }
-
-            if (Character.isUpperCase(c)) {
-                isUpperCase = true;
-                continue;
+            else if(Character.isDigit(ch)){
+                hasDigit = true;
             }
-
-            if ("!%$@&*()[]".indexOf(c) >= 0) {
-               isSpecialSymbol = true;
+            else if (specialChars.charAt(ch)!=-1){
+                hasSpecialChar = true;
             }
         }
-        return isLowerCase && isUpperCase && isDigit && isSpecialSymbol;
+        return password.length()>=8 && hasUpperCase && hasLowerCase && hasDigit && hasSpecialChar;
     }
 
 
