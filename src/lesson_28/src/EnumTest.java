@@ -1,7 +1,4 @@
-package lesson_28.src;/*
-@date 22.02.2024
-@author Sergey Bugaienko
-*/
+package lesson_28.src;
 
 public enum EnumTest {
     TEST

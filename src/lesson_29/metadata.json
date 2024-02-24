@@ -1,0 +1,14 @@
+{
+  "topic": "LinkedList Realisation",
+  "date": "2024-02-23",
+  "plan": "plan.md",
+  "theory": "theory.md",
+  "homework": "homework.md",
+  "code": [
+    "src/MyQueue.java",
+    "src/MyLinkedList.java",
+    "src/MyList.java"
+
+  ],
+  "video": ""
+}
