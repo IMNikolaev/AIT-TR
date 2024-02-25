@@ -183,13 +183,12 @@ public class MyLinkedList<T> implements MyList<T>, MyQueue<T> {
     @Override
     @SuppressWarnings("unchecked")
     public T[] toArray() {
-
-        T[] result = (T[]) Array.newInstance(first.value.getClass(), size);
-        int i =0;
+        T[] result = (T[]) Array.newInstance(Object.class, size);
+        int i = 0;
         Node<T> cursor = first;
-        while (cursor!=null){
+        while (cursor != null) {
             result[i++] = cursor.value;
-            cursor= cursor.next;
+            cursor = cursor.next;
         }
         return result;
     }
