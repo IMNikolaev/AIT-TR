@@ -215,6 +215,16 @@ public class MyLinkedList<T> implements MyList<T>, MyQueue<T> {
     @Override
     public boolean remove(T value) {
         Node <T> cursor = first;
+        if (first == null)
+            return false;
+        if (first.value.equals(value)){
+            removeFirst();
+            return true;
+        }
+        if (last.value.equals(value)){
+            removeLast();
+            return true;
+        }
         while (cursor.next!=null){
             if (cursor.value.equals(value)){
                 removeNode(cursor);
