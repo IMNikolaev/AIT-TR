@@ -246,7 +246,7 @@ public class MyLinkedList<T> implements MyList<T>, MyQueue<T> {
         }
         T ruturnValue = cursor.value;
         removeNode(cursor);
-        return null;
+        return ruturnValue;
     }
 
     @Override
