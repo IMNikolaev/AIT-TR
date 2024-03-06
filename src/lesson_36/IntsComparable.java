@@ -5,9 +5,9 @@ import java.util.Comparator;
 
 public class IntsComparable {
 
-    public static void main(String[] args) {
-        Integer[] integers = { 1, 6, 5, 4, 7, 8, 9, 2, 7, 3 };
 
+
+    public Integer[] firstTaskSort (Integer[] integers) {
         Arrays.sort(integers, new Comparator<Integer>() {
             @Override
             public int compare(Integer a, Integer b) {
@@ -20,9 +20,9 @@ public class IntsComparable {
                 return a.compareTo(b);
             }
         });
-        System.out.println(Arrays.toString(integers));
-
-        // ВАРИАНТ 1
+        return integers;
+    }
+    public Integer[] secondTaskSortV1 (Integer[] integers) {
         Arrays.sort(integers, new Comparator<Integer>() {
             @Override
             public int compare(Integer a, Integer b) {
@@ -38,9 +38,9 @@ public class IntsComparable {
                 return a.compareTo(b);
             }
         });
-        System.out.println(Arrays.toString(integers));
-
-        // ВАРИАНТ 2
+        return integers;
+    }
+    public Integer[] secondTaskSortV2 (Integer[] integers) {
         Comparator<Integer> ins = (a,b) -> {
             if (a%2 == 0 && b%2!=0){
                 return -1;
@@ -54,6 +54,21 @@ public class IntsComparable {
             return a.compareTo(b);
         };
         Arrays.sort(integers,ins);
-        System.out.println(Arrays.toString(integers));
+        return integers;
+    }
+
+    public static void main(String[] args) {
+        IntsComparable intsComparable = new IntsComparable();
+        Integer[] integers = { 1, 6, 5, 4, 7, 8, 9, 2, 7, 3 };
+        Integer [] newIntegers = intsComparable.firstTaskSort(integers);
+        System.out.println(Arrays.toString(newIntegers));
+
+        // ВАРИАНТ 1
+        Integer [] newIntegers2 = intsComparable.secondTaskSortV1(integers);
+        System.out.println(Arrays.toString(newIntegers2));
+
+        // ВАРИАНТ 2
+        Integer [] newIntegers3 = intsComparable.secondTaskSortV2(integers);
+        System.out.println(Arrays.toString(newIntegers3));
     }
 }
