@@ -11,7 +11,6 @@ public class MetodsTask3 {
 
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            System.out.println(c);
             if (!repeatedChars.contains(c)) {
                 if (!uniqueChars.contains(c)) {
                     uniqueChars.add(c);
@@ -22,13 +21,7 @@ public class MetodsTask3 {
             }
 
         }
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (uniqueChars.contains(c)) {
-                return c;
-            }
-        }
-        return null;
+        return uniqueChars.iterator().next();
     }
 
 }
