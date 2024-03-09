@@ -21,7 +21,10 @@ public class MetodsTask3 {
             }
 
         }
-        return uniqueChars.iterator().next();
+        if (uniqueChars.size()>0) {
+            return uniqueChars.iterator().next();
+        }
+        return null;
     }
 
 }
