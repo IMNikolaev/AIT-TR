@@ -4,20 +4,28 @@ import java.util.*;
 
 public class MetodsTask3 {
 
-    public Character getFirstUniqueChar(String string) {
-        String[] parts = string.split("");
-        ArrayList<String> symbolsArray = new ArrayList<>(List.of(parts));
-        int [] counts = new int[symbolsArray.size()];
-        for (int i = 0; i < symbolsArray.size(); i++) {
-            for (int j = i+1; j < symbolsArray.size(); j++) {
-                if (symbolsArray.get(i).equals(symbolsArray.get(j))){
-                    counts[i] +=1;
+
+    public Character getFirstUniqueChar(String s) {
+        Set<Character> uniqueChars = new LinkedHashSet<>();
+        Set<Character> repeatedChars = new HashSet<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            System.out.println(c);
+            if (!repeatedChars.contains(c)) {
+                if (!uniqueChars.contains(c)) {
+                    uniqueChars.add(c);
+                } else {
+                    uniqueChars.remove(c);
+                    repeatedChars.add(c);
                 }
             }
+
         }
-        for (int i = 0; i < counts.length; i++) {
-            if (counts[i]==0){
-                return symbolsArray.get(i).charAt(0);
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (uniqueChars.contains(c)) {
+                return c;
             }
         }
         return null;
