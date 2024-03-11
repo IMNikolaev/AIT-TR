@@ -8,5 +8,6 @@ public class Main {
         char[] characters = string.toCharArray();
         MetodsTask3 metodsTask3 = new MetodsTask3();
         System.out.println(metodsTask3.getFirstUniqueChar(string));
+        System.out.println(metodsTask3.getFirstUniqueCharter(string));
     }
 }

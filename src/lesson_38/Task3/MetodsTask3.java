@@ -4,10 +4,21 @@ import java.util.*;
 
 public class MetodsTask3 {
 
+    public Character getFirstUniqueCharter (String str){
+        for (char c : str.toCharArray()){
+            int indexOfCurrentChar = str.indexOf(c);
+            if (str.indexOf(c, indexOfCurrentChar+1)<0){
+                return c;
+            }
+        }
+        return null;
+    }
+
 
     public Character getFirstUniqueChar(String s) {
         Set<Character> uniqueChars = new LinkedHashSet<>();
         Set<Character> repeatedChars = new HashSet<>();
+
 
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);

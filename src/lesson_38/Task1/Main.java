@@ -5,5 +5,6 @@ public class Main {
         String testString = "Тестовая строка для удаления слов, которые повторяются. \"строка\" для удаления!";
         Sorted sorted = new Sorted();
         System.out.println(sorted.getUniqueSortedWords(testString));
+
     }
 }
