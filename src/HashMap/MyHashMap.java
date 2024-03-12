@@ -86,13 +86,22 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
         1. Получить индекс
         2. Пройти по всем нодам в цепочке, сравнить ключи
          */
-
-        //TODO ПОХОДУ
         int hashCode = key.hashCode();
         int index = hashCode % buckets.length;
         if (buckets[index]==null) {return null;}
         Node<K, V> curentNode = buckets[index];
         Node<K, V> prevNode = null;
+        if (buckets[index]==null) {return null;}
+        while (curentNode!=null){
+            if(curentNode.key.equals(key)){
+                var returnedValue = curentNode.value;
+                removeNode(prevNode,curentNode,index);
+                return returnedValue;
+            }
+            prevNode = curentNode;
+            curentNode = curentNode.next;
+        }
+
 /*        if (buckets[index]==null) {return null;}
         else {
             Node<K, V> curentNode = buckets[index];
@@ -122,7 +131,7 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
 
         V value = current.value;
 
-        //TODO
+        //TODO НАПИСАТЬ!!!
 
         size--;
         return value;

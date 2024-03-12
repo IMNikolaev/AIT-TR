@@ -26,6 +26,9 @@ public class Roat {
             if(nextCity.equals(cityStart)){
                 return new ArrayList<>();
             }
+            if(nextCity.equals(visitedCity)){
+                return new ArrayList<>();
+            }
         }
         return route;
     }
