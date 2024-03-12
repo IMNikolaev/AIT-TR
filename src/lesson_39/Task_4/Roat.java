@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Roat {
 
-    public List<String> findRoute (Map map, String cityStart, String cityFinish){
+    public List<String> findRoute (Map<String, String> map, String cityStart, String cityFinish){
         List<String> route = new ArrayList<>();
         route.add(cityStart);
         String visitedCity;
@@ -20,7 +20,7 @@ public class Roat {
             return route;
         }
         while (!visitedCity.equals(cityFinish)) {
-            String nextCity = (String) map.get(visitedCity);
+            String nextCity = map.get(visitedCity);
             route.add(nextCity);
             visitedCity = nextCity;
             if(nextCity.equals(cityStart)){

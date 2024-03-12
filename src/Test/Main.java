@@ -4,7 +4,7 @@ import HashMap.MyHashMap;
 
 public class Main {
     public static void main(String[] args) {
-        MyHashMap<Object, Object> hM = new MyHashMap<>();
+        MyHashMap<String, Integer> hM = new MyHashMap<String, Integer>();
         hM.put("Груша",12);
         hM.put("Яблоко",13);
         hM.put("Яблоко",1);
