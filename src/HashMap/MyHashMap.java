@@ -86,6 +86,8 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
         1. Получить индекс
         2. Пройти по всем нодам в цепочке, сравнить ключи
          */
+
+        //TODO ПОХОДУ ДОПИСАТЬ!!!
         int hashCode = key.hashCode();
         int index = hashCode % buckets.length;
         if (buckets[index]==null) {return null;}
