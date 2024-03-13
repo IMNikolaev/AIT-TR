@@ -2,6 +2,7 @@ package lesson_40;
 
 import java.util.*;
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -12,7 +13,11 @@ public class Main {
 
         // TASK 2
         String string = "Создайте цепочку функций, которая сначала удаляет пробелы из строки, затем преобразует её в верхний регистр, и в конце считает количество символов в измененной строке";
-        System.out.println(task2(string));
+        Function<String,String> deleteSpace = str -> str.replaceAll("\\s", "");
+        Function<String,String> toUpperCase = str -> str.toUpperCase();
+        Function<String,Integer> stringLength = str -> str.length();
+        Function<String,Integer> allFunctions = deleteSpace.andThen(toUpperCase.andThen(stringLength));
+        System.out.println(allFunctions.apply(string));
 
         // TASK 3
 
@@ -43,14 +48,6 @@ public class Main {
         return result;
     }
 
-
-    // TASK 2
-    public static int task2(String input) {
-        return (int) removeSpaces(input).chars().count();
-    }
-    private static String removeSpaces (String input) {
-        return input.replaceAll("\\s", "").toUpperCase();
-    }
 
     // TASK 5
 
