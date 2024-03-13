@@ -129,12 +129,17 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
         3. Ссылка на саму удаляемую ноду.
          */
 
-        V value = current.value;
-
-        //TODO НАПИСАТЬ!!!
-
-        size--;
-        return value;
+        if(previous == null){
+            var returnedValue = current.value;
+            buckets[index]=current.next;
+            size--;
+            return returnedValue;
+        }
+        else {
+            var returnedValue = current.value;
+            previous.next=current.next;
+            return returnedValue;
+        }
     }
 
     @Override
@@ -154,8 +159,11 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
     public Collection<V> values() {
         Collection<V> result = new ArrayList<>();
 
-        // Todo
-
+        for (int i = 0; i < buckets.length; i++) {
+            if (buckets[i]!=null) {
+                result.add(buckets[i].value);
+            }
+        }
         return result;
     }
 
@@ -165,8 +173,15 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
         1. Получить хэш ключа и индекс
         2. Пройти по цепочке, проверить ключи на равенство
          */
-
-
+        int hashCode = key.hashCode();
+        int index = hashCode % buckets.length;
+        Node<K, V> currentNode = buckets[index];
+        while (currentNode!=null) {
+            if (buckets[index].key.equals(key)) {
+                return true;
+            }
+            currentNode=currentNode.next;
+        }
         return false;
     }
 
