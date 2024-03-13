@@ -27,11 +27,15 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
     {
 
         Node<K, V> newNode = new Node<>(key, value);
+        if (size >= buckets.length * loadFactor) {
+            resize();
+        }
         int hashCode = key.hashCode();
-        int index = hashCode % buckets.length;
+        int index =Math.abs(hashCode % buckets.length);
 
         if (buckets[index] == null){
             buckets[index] = newNode;
+            size++;
         }
         else {
             Node<K, V> curentNode = buckets[index];
@@ -200,8 +204,7 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
 
     @Override
     public boolean isEmpty() {
-        //Todo
-        return true;
+        return size==0;
     }
 
     private void resize() {
@@ -217,13 +220,23 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
         capacity = capacity * 2;
         Node<K, V>[] newBuckets = (Node<K, V>[]) new Node[capacity];
 
+        for (int i = 0; i < buckets.length; i++) {
+            Node<K, V> currentNode = buckets[i];
+            while (currentNode != null) {
+                int newHashCode = currentNode.key.hashCode();
+                int newIndex = Math.abs(newHashCode % newBuckets.length);
+                Node<K, V> temp = currentNode.next;
+                currentNode.next = newBuckets[newIndex];
+                newBuckets[newIndex] = currentNode;
+                currentNode = temp;
+            }
+        }
+
         //Todo реализовать resize()
 
         System.out.println("Пересчет завершен");
 
         buckets = newBuckets;
-
-
     }
 
     @Override

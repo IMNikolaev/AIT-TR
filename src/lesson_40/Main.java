@@ -31,7 +31,7 @@ public class Main {
 
         // TASK 5
         List<Person> personList = getListPersons();
-        List<Person> sortedPersonList = personList.stream().filter(person -> person.getAge()>20).filter(person -> person.getCity().equals("Москва")).sorted(Comparator.comparing(Person::getName)).collect(Collectors.toList());
+        List<Person> sortedPersonList = personList.stream().filter(person -> person.getAge()>20).filter(person -> person.getCity().equals("Москва")).sorted((p1,p2) -> p1.getName().compareTo(p2.getName())).collect(Collectors.toList());
         System.out.println(sortedPersonList);
 
 
@@ -63,7 +63,8 @@ public class Main {
                 new Person("Игорь", 29, "Москва"),
                 new Person("Владимир", 27, "Харьков"),
                 new Person("Семен", 12, "Курск"),
-                new Person("Алеша", 9, "Москва")
+                new Person("Алеша", 9, "Москва"),
+                new Person("Алексей", 45, "Москва")
         );
     }
 
