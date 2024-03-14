@@ -9,6 +9,8 @@ public class Main {
     public static void main(String[] args) {
         // TASK 1
         List<Integer> integers = List.of(-1, 12, 0, 4, 1, -15, 24, 0);
+        List<Integer> otv = integers.stream().filter(integer -> integer>0).filter(integer -> integer%2 ==0).collect(Collectors.toList());
+        System.out.println(otv);
         System.out.println(task1(integers));
 
         // TASK 2
@@ -25,6 +27,7 @@ public class Main {
         FI.put("Igor", "Nikolaev");
         FI.put("Yaroslav", "Hrytsenko");
         FI.put("Mykhailo", "Chui");
+        FI.put("Andrey", "Yershov");
 
         BiConsumer<String,String> print = (key,value) -> System.out.println(key + " " + value);
         FI.forEach(print);
@@ -38,7 +41,11 @@ public class Main {
         List<Person> personList = getListPersons();
         List<Person> sortedPersonList = personList.stream().filter(person -> person.getAge()>20).filter(person -> person.getCity().equals("Москва")).sorted((p1,p2) -> p1.getName().compareTo(p2.getName())).collect(Collectors.toList());
         System.out.println(sortedPersonList);
-
+        String longestName = personList.stream()
+                .max((n1, n2) -> Integer.compare(n1.getName().length(), n2.getName().length()))
+                .map(Person::getName)
+                .orElse("Нет элементов");
+        System.out.println(longestName);
 
     }
 
