@@ -1,9 +1,6 @@
 package lesson_41;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -27,5 +24,13 @@ public class Main {
         List<Integer> integers1 = List.of(-1, 12, 0, 4, 1, 15, 24, 0, 16,11, 1001);
         List<Integer>task3 = integers1.stream().filter(integer -> integer%2==0).map(integer -> integer= integer*2).collect(Collectors.toList());
         System.out.println(task3);
+
+        String[] strings = {"Abcd","bbbb","string","hello","world"};
+        int[]ints = Arrays.stream(strings)
+                .mapToInt(i -> i.length())
+                .toArray();
+        System.out.println(Arrays.toString(ints));
+
+
      }
 }
