@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         // TASK 0
 
-        String text = "Hello, world and good! afternoon";
+        String text = "Hello, world and good afternoon";
         int countLetters = countLetters(text);
         System.out.println("Task 1");
         System.out.println("countLetters: " + countLetters);

@@ -30,8 +30,8 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
         if (size >= buckets.length * loadFactor) {
             resize();
         }
-        int hashCode = key.hashCode();
-        int index =Math.abs(hashCode % buckets.length);
+
+        int index = getIndex(key);
 
         if (buckets[index] == null){
             buckets[index] = newNode;
@@ -63,8 +63,7 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
      */
     @Override
     public V get(Object key) {
-        int hashCode = key.hashCode();
-        int index = hashCode % buckets.length;
+        int index = getIndex((K) key);
 
         if (buckets[index]==null) {return null;}
         else {
@@ -90,8 +89,7 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
         1. Получить индекс
         2. Пройти по всем нодам в цепочке, сравнить ключи
          */
-        int hashCode = key.hashCode();
-        int index = hashCode % buckets.length;
+        int index = getIndex((K) key);
         if (buckets[index]==null) {return null;}
         Node<K, V> curentNode = buckets[index];
         Node<K, V> prevNode = null;
@@ -142,6 +140,7 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
         else {
             var returnedValue = current.value;
             previous.next=current.next;
+            size--;
             return returnedValue;
         }
     }
@@ -177,8 +176,7 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
         1. Получить хэш ключа и индекс
         2. Пройти по цепочке, проверить ключи на равенство
          */
-        int hashCode = key.hashCode();
-        int index = hashCode % buckets.length;
+        int index = getIndex((K) key);
         Node<K, V> currentNode = buckets[index];
         while (currentNode!=null) {
             if (buckets[index].key.equals(key)) {
@@ -223,8 +221,7 @@ public class MyHashMap<K, V> implements InterfaceHashMap<K, V> {
         for (int i = 0; i < buckets.length; i++) {
             Node<K, V> currentNode = buckets[i];
             while (currentNode != null) {
-                int newHashCode = currentNode.key.hashCode();
-                int newIndex = Math.abs(newHashCode % newBuckets.length);
+                int newIndex = getIndex(currentNode.key);
                 Node<K, V> temp = currentNode.next;
                 currentNode.next = newBuckets[newIndex];
                 newBuckets[newIndex] = currentNode;
