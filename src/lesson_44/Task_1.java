@@ -6,10 +6,9 @@ import java.util.ArrayList;
 public class Task_1 {
     public static void main(String[] args) {
         String filePath = "src/lesson_44/files/task1.txt";
-
-        File file = new File(filePath);
         ArrayList<String> buffer = new ArrayList<>();
         try {
+            File file = new File(filePath);
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
@@ -17,9 +16,6 @@ public class Task_1 {
             while ((line = bufferedReader.readLine()) != null) {
                 buffer.add(line);
             }
-
-            bufferedReader.close();
-            fileReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

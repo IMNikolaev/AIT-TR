@@ -15,19 +15,18 @@ public class Task_2 {
         moreFile.delete();
         Map<String,Integer> usersMoneyHistoryGet = readUHGFromFile(file);
         usersMoneyHistoryGet.forEach((k,v) -> {
-            if (v<2000){lessThan2000(k,v);}
-            else {moreThen2000(k,v);}
+            if (v<2000){writeInNewFiles(k,v,lessFile);}
+            else {writeInNewFiles(k,v,moreFile);}
         });
 
     }
 
-    private static void moreThen2000(String k, Integer v) {
-        File fileName = new File("src/lesson_44/files/", "more.txt");
+    private static void writeInNewFiles(String k, Integer v,File file) {
         try(
-                FileWriter fileWriter = new FileWriter(fileName, true);
+                FileWriter fileWriter = new FileWriter(file, true);
                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         ) {
-            fileName.createNewFile();
+            file.createNewFile();
 
             String toWrite = k + ":" + v;
             bufferedWriter.write(toWrite);
@@ -38,22 +37,6 @@ public class Task_2 {
         }
     }
 
-    private static void lessThan2000(String k, Integer v) {
-        File fileName = new File("src/lesson_44/files/", "less.txt");
-        try(
-                FileWriter fileWriter = new FileWriter(fileName, true);
-                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        ) {
-            fileName.createNewFile();
-
-            String toWrite = k + ":" + v;
-            bufferedWriter.write(toWrite);
-            bufferedWriter.newLine();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     private static Map<String, Integer> readUHGFromFile(File file) {
         Map<String,Integer> myMap = new HashMap<>();
