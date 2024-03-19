@@ -9,6 +9,10 @@ public class Task_2 {
     public static void main(String[] args) {
 
         File file = new File("src/lesson_44/files/task2.txt");
+        File lessFile  = new File("src/lesson_44/files/less.txt");
+        lessFile.delete();
+        File moreFile  = new File("src/lesson_44/files/more.txt");
+        moreFile.delete();
         Map<String,Integer> usersMoneyHistoryGet = readUHGFromFile(file);
         usersMoneyHistoryGet.forEach((k,v) -> {
             if (v<2000){lessThan2000(k,v);}
