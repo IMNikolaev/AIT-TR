@@ -39,17 +39,15 @@ public class BiggestDatesBetweenTheWars {
         }
     }
     private void getEarliestWar(Map<String, LocalDate> warMap) {
-        LocalDate earliestDate = warMap.values().stream().min(LocalDate::compareTo).orElseThrow();
         minDateName = warMap.entrySet().stream()
-                .filter(entry -> entry.getValue().equals(earliestDate))
+                .filter(entry -> entry.getValue().equals(minDate))
                 .map(Map.Entry::getKey)
                 .findFirst()
                 .orElse("");
     }
     private void getLatestWar(Map<String, LocalDate> warMap) {
-        LocalDate earliestDate = warMap.values().stream().max(LocalDate::compareTo).orElseThrow();
         maxDateName = warMap.entrySet().stream()
-                .filter(entry -> entry.getValue().equals(earliestDate))
+                .filter(entry -> entry.getValue().equals(maxDate))
                 .map(Map.Entry::getKey)
                 .findFirst()
                 .orElse("");
